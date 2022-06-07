@@ -18,9 +18,9 @@ func LastballStatus(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 	}
 
-	var ballData config.LastBallDataModel
+	var statusData config.LastBallDataModel
 
-	err = json.Unmarshal(reqBody, &ballData)
+	err = json.Unmarshal(reqBody, &statusData)
 
 	if err != nil {
 		fmt.Println(err)
@@ -28,7 +28,7 @@ func LastballStatus(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 	}
 
-	fmt.Printf("%#v", ballData)
+	fmt.Printf("%#v", statusData)
 	w.WriteHeader(100)
 	fmt.Println("Endpint Hit: HomePage")
 }
