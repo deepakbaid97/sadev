@@ -12,6 +12,7 @@ import (
 
 func main() {
 	router := mux.NewRouter()
+	os.Setenv("PORT", "2000")
 	port := os.Getenv("PORT")
 
 	fmt.Println("sdf")
@@ -20,7 +21,7 @@ func main() {
 	s.HandleFunc("/PostBalldata", testbot.BatsmanHandler).Methods("POST")
 	s.HandleFunc("/Postfieldsetting", testbot.FieldingHandler).Methods("POST")
 	s.HandleFunc("/PostLastballStatus", testbot.LastballStatus).Methods("POST")
-	s.HandleFunc("/Getfieldsetting", testbot.BatsmanHandler)
+	s.HandleFunc("/Getfieldsetting", testbot.SendFieldingSettings)
 	s.HandleFunc("/Toss", testbot.TossHandler)
 	log.Fatal(http.ListenAndServe(":"+fmt.Sprint(port), router))
 }

@@ -3,14 +3,27 @@ package testbot
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"net/http"
 
 	"github.com/testBot/config"
 )
 
 func FieldingHandler(w http.ResponseWriter, r *http.Request) {
-	reqBody, err := ioutil.ReadAll(r.Body)
+	// reqBody, err := ioutil.ReadAll(r.Body)
+
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	fmt.Fprintf(w, err.Error())
+	// 	w.WriteHeader(http.StatusBadRequest)
+	// }
+
+	var fielderData []config.FieldingModel
+
+	// fmt.Printf("___ %s", string(reqBody))
+
+	// err = json.Unmarshal(reqBody, &fielderData)
+
+	err := json.NewDecoder(r.Body).Decode(&fielderData)
 
 	if err != nil {
 		fmt.Println(err)
@@ -18,17 +31,9 @@ func FieldingHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 	}
 
-	var fielderData []config.FieldPosition
+	// for _, item := range fielderData {
 
-	err = json.Unmarshal(reqBody, &fielderData)
-
-	if err != nil {
-		fmt.Println(err)
-		fmt.Fprintf(w, err.Error())
-		w.WriteHeader(http.StatusBadRequest)
-	}
-
-	fmt.Printf("%#v", fielderData)
+	fmt.Printf(" %#v", fielderData)
 
 	w.WriteHeader(200)
 	fmt.Println("Endpint Hit: FieldingHangler")
