@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"net/http"
@@ -12,6 +13,9 @@ import (
 func main() {
 	router := mux.NewRouter()
 
+	port := flag.Int("port", -1, "specify a port")
+	flag.Parse()
+
 	fmt.Println("sdf")
 	s := router.PathPrefix("/api/CricketBot").Subrouter()
 	s.HandleFunc("/GetNextBall", testbot.BowlingHandler)
@@ -20,5 +24,5 @@ func main() {
 	s.HandleFunc("/PostLastballStatus", testbot.LastballStatus).Methods("POST")
 	s.HandleFunc("/Getfieldsetting", testbot.BatsmanHandler)
 	s.HandleFunc("/Toss", testbot.TossHandler)
-	log.Fatal(http.ListenAndServe(":2000", router))
+	log.Fatal(http.ListenAndServe(":"+fmt.Sprint(*port), router))
 }
