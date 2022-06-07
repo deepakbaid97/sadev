@@ -13,7 +13,7 @@ import (
 func main() {
 	router := mux.NewRouter()
 
-	port := flag.Int("port", -1, "specify a port")
+	port := flag.Int("PORT", -1, "specify a port")
 	flag.Parse()
 
 	fmt.Println("sdf")
