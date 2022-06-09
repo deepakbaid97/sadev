@@ -37,7 +37,7 @@ func (t *TestBot) LastballStatus(w http.ResponseWriter, r *http.Request) {
 
 	// val, ok:= t.Sd[ZoneKey]
 	// fmt.Println(ZoneKey, "--- ZoneKey", config.Shots(ShotChosen), "--- SHOTCHOSEN", statusData.Runonlastball, "---statusData.Runonlastball")
-	// t.Sd[ZoneKey][config.Shots(ShotChosen)]["010"] = statusData.Runonlastball
+	t.Sd[ZoneKey][config.Shots(ShotChosen)]["010"] = statusData.Runonlastball
 
 	w.WriteHeader(100)
 	fmt.Println("Endpint Hit: POST LastBallStatus")
