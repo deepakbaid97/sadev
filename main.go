@@ -18,7 +18,7 @@ var Fd config.BallingAndFieldingPosition
 
 func main() {
 	router := mux.NewRouter()
-	os.Setenv("PORT", "2000")
+	//os.Setenv("PORT", "2000")
 	port := os.Getenv("PORT")
 	preFillData()
 	preFillFieldingData()
