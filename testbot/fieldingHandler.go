@@ -8,20 +8,11 @@ import (
 	"github.com/testBot/config"
 )
 
-func FieldingHandler(w http.ResponseWriter, r *http.Request) {
-	// reqBody, err := ioutil.ReadAll(r.Body)
+var CurrentFieldingData []config.FieldingModel
 
-	// if err != nil {
-	// 	fmt.Println(err)
-	// 	fmt.Fprintf(w, err.Error())
-	// 	w.WriteHeader(http.StatusBadRequest)
-	// }
+func FieldingHandler(w http.ResponseWriter, r *http.Request) {
 
 	var fielderData []config.FieldingModel
-
-	// fmt.Printf("___ %s", string(reqBody))
-
-	// err = json.Unmarshal(reqBody, &fielderData)
 
 	err := json.NewDecoder(r.Body).Decode(&fielderData)
 
@@ -31,10 +22,10 @@ func FieldingHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 	}
 
-	// for _, item := range fielderData {
+	CurrentFieldingData = fielderData
 
 	fmt.Printf(" %#v", fielderData)
 
 	w.WriteHeader(200)
-	fmt.Println("Endpint Hit: FieldingHangler")
+	fmt.Println("Endpint Hit: POST FieldingHangler")
 }

@@ -8,8 +8,20 @@ import (
 	config "github.com/testBot/config"
 )
 
-func BowlingHandler(w http.ResponseWriter, r *http.Request) {
-	ballingData := config.BallModel{Zone: 1, BowingType: 1, BowlerType: 2, Speed: 130, BowlerName: "Rohit"}
+var BallCount = 0
+
+func (t *FieldBot) BowlingHandler(w http.ResponseWriter, r *http.Request) {
+
+	varBall := t.Fd["BF"]
+	smallBall := BallCount % 10
+	ballZone := varBall[smallBall].Zone
+	ballBowlingType := varBall[smallBall].BowingType
+	ballBowlerType := varBall[smallBall].BowlerType
+	ballSpeed := varBall[smallBall].Speed
+
+	baller := []string{"Raghavendra Hosur Venkata Krishna", "Shruthi Shah", "Rohit Tiwari", "Amrita Dayal", "Gautam Bhatt", "Kiran Adekhandi Krishnamurthy", "Srinivas Kempanna", "Priyadarshini Angolkar", "Mayank Sekhar", "Rahul Sah", "Amit Jain"}
+	ballingData := config.BallModel{Zone: ballZone, BowingType: ballBowlingType, BowlerType: ballBowlerType, Speed: ballSpeed, BowlerName: baller[BallCount/6]}
 	json.NewEncoder(w).Encode(ballingData)
-	fmt.Println("Endpint Hit: Bowling Handler")
+	fmt.Println("Endpint Hit: GET Bowling Handler")
+	BallCount++
 }

@@ -1,0 +1,72 @@
+{"BF":[
+	{
+		"zone": 0,
+		"bowingType": 0,
+		"bowlerType": 0,
+		"speed": 160,
+		"fielders": [11, 6, 7, 12, 4, 3, 2, 5, 8]
+	},
+	{
+		"zone": 0,
+		"bowingType": 0,
+		"bowlerType": 0,
+		"speed": 130,
+		"fielders": [11, 6, 7, 12, 4, 3, 2, 5, 8]
+	},
+	{
+		"zone": 1,
+		"bowingType": 2,
+		"bowlerType": 0,
+		"speed": 130,
+		"fielders" :[9, 10, 11, 8, 7, 6, 5, 4, 2]
+	},
+	{
+		"zone": 1,
+		"bowingType": 2,
+		"bowlerType": 1,
+		"speed": 110,
+		"fielders": [9, 10, 11, 8, 7, 6, 5, 4, 2]
+	},
+	{
+		"zone": 1,
+		"bowingType": 1,
+		"bowlerType": 1,
+		"speed": 110,
+		"fielders": [4, 2, 3, 5, 8, 9, 10, 11, 6]
+	},
+	{
+		"zone": 1,
+		"bowingType": 3,
+		"bowlerType": 3,
+		"speed": 75,
+		"fielders": [4, 3, 2, 5, 8, 9, 10, 11, 6]
+	},
+	{
+		"zone": 1,
+		"bowingType": 3,
+		"bowlerType": 3,
+		"speed": 80,
+		"fielders": [4, 3, 2, 5, 8, 9, 10, 11, 6]
+	},
+	{
+		"zone": 1,
+		"bowingType": 4,
+		"bowlerType": 4,
+		"speed": 75,
+		"fielders": [8, 9, 10, 11, 6, 7, 4, 12, 2]
+	},
+	{
+		"zone": 0,
+		"bowingType": 3,
+		"bowlerType": 3,
+		"speed": 75,
+		"fielders": [6, 11, 10, 5, 8, 4, 3, 2, 7]
+	} ,
+	{
+		"zone": 0,
+		"bowingType": 4,
+		"bowlerType": 4,
+		"speed": 100,
+		"fielders": [6, 7, 10, 11, 8, 9, 12, 2, 4]
+	}
+]}
